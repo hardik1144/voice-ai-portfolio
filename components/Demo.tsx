@@ -76,25 +76,37 @@ function Lightbox({ images, startIndex, onClose }: { images: string[]; startInde
 
         {images.length > 1 && (
           <>
+            {/* Desktop side arrows */}
             <button
               onClick={prev}
-              className="absolute left-[-56px] top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/10 hover:bg-white/25 flex items-center justify-center transition-colors"
+              className="hidden sm:flex absolute left-[-56px] top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/10 hover:bg-white/25 items-center justify-center transition-colors"
             >
               <ChevronLeft className="w-6 h-6 text-white" />
             </button>
             <button
               onClick={next}
-              className="absolute right-[-56px] top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/10 hover:bg-white/25 flex items-center justify-center transition-colors"
+              className="hidden sm:flex absolute right-[-56px] top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/10 hover:bg-white/25 items-center justify-center transition-colors"
             >
               <ChevronRight className="w-6 h-6 text-white" />
             </button>
-            <div className="flex justify-center gap-2 mt-4">
+            {/* Mobile bottom arrows + dots */}
+            <div className="flex sm:hidden items-center justify-center gap-4 mt-4">
+              <button onClick={prev} className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/25 flex items-center justify-center transition-colors">
+                <ChevronLeft className="w-5 h-5 text-white" />
+              </button>
+              <div className="flex gap-2">
+                {images.map((_, i) => (
+                  <button key={i} onClick={() => setIdx(i)} className={`w-2 h-2 rounded-full transition-colors ${i === idx ? 'bg-white' : 'bg-white/30'}`} />
+                ))}
+              </div>
+              <button onClick={next} className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/25 flex items-center justify-center transition-colors">
+                <ChevronRight className="w-5 h-5 text-white" />
+              </button>
+            </div>
+            {/* Desktop dots */}
+            <div className="hidden sm:flex justify-center gap-2 mt-4">
               {images.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => setIdx(i)}
-                  className={`w-2 h-2 rounded-full transition-colors ${i === idx ? 'bg-white' : 'bg-white/30'}`}
-                />
+                <button key={i} onClick={() => setIdx(i)} className={`w-2 h-2 rounded-full transition-colors ${i === idx ? 'bg-white' : 'bg-white/30'}`} />
               ))}
             </div>
           </>

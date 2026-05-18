@@ -114,8 +114,8 @@ export default function Contact() {
               </div>
               <div className="text-left">
                 <p className="text-[10px] text-slate-500 uppercase tracking-widest font-mono mb-0.5">LinkedIn</p>
-                <p className="text-sm text-slate-300 group-hover:text-white transition-colors">
-                  linkedin.com/in/hardik-sharma-11a900259
+                <p className="text-sm text-slate-300 group-hover:text-white transition-colors truncate">
+                  linkedin.com/in/hardik-sharma
                 </p>
               </div>
             </a>

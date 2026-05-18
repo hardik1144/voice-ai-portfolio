@@ -18,7 +18,7 @@ export default function Footer() {
         </div>
 
         {/* Links */}
-        <div className="flex items-center gap-4 text-xs text-slate-600">
+        <div className="flex items-center gap-4 text-xs text-slate-600 flex-wrap justify-center">
           <a href="mailto:hardik17022003@gmail.com" className="hover:text-slate-400 transition-colors">
             hardik17022003@gmail.com
           </a>

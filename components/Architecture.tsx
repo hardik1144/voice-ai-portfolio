@@ -86,7 +86,7 @@ export default function Architecture() {
           <p className="text-[11px] font-mono text-slate-600 text-center mb-3 tracking-widest uppercase">
             Complete Pipeline
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-1.5 text-xs text-slate-400">
+          <div className="flex flex-wrap items-center justify-center gap-x-1.5 gap-y-2 text-xs text-slate-400">
             {architectureSteps.map((step, i) => (
               <span key={step.title} className="flex items-center gap-1.5">
                 <span className="text-slate-300 font-medium">{step.title}</span>

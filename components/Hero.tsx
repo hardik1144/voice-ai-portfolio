@@ -139,8 +139,8 @@ export default function Hero() {
               Voice Agent Pipeline
             </p>
 
-            {/* Pipeline cards — horizontal on large, vertical on small */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-0">
+            {/* Pipeline cards — scrollable on mobile, row on sm+ */}
+            <div className="flex flex-row items-center justify-start sm:justify-center gap-0 overflow-x-auto pb-1 sm:pb-0 scrollbar-none">
               {pipelineSteps.map((step, i) => (
                 <div key={step.id} className="flex flex-col sm:flex-row items-center">
                   <motion.div
