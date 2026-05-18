@@ -24,8 +24,7 @@ export default function Contact() {
             <span className="gradient-text">together</span>
           </h2>
           <p className="text-slate-400 max-w-xl mx-auto text-sm leading-relaxed">
-            Open to Voice AI, Conversational AI, GenAI, and AI Automation roles. I&apos;m available for
-            full-time positions, contract work, and technical collaboration.
+            Open to full-time Voice AI, Conversational AI, GenAI, and AI Automation roles.
           </p>
         </motion.div>
 

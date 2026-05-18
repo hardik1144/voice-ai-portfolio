@@ -61,7 +61,7 @@ export default function About() {
               STT → LLM → TTS pipelines, CRM automation, call analytics dashboards, and agent blueprint generation tools.
             </p>
             <p>
-              I work on both sides of the problem the{' '}
+              I work on both sides of the problem: the{' '}
               <span className="text-cyan-400 font-medium">technical pipeline side</span> (infrastructure, integrations,
               real-time streaming, tool calling, backend APIs) and the{' '}
               <span className="text-violet-400 font-medium">conversation design side</span> (intent taxonomy, prompt

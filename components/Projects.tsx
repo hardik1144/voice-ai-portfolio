@@ -152,7 +152,7 @@ export default function Projects() {
             <span className="gradient-text">Voice AI Projects</span>
           </h2>
           <p className="text-slate-400 max-w-2xl text-sm leading-relaxed">
-            Each project below was built with real integrations live calendars, CRMs, and voice pipelines.
+            Each project below was built with real integrations like calendars, CRMs, and voice pipelines.
           </p>
         </motion.div>
 
