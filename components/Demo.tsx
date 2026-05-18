@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { createPortal } from 'react-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Play, Image, Lock, X, ChevronLeft, ChevronRight, ZoomIn } from 'lucide-react'
@@ -30,6 +30,8 @@ const accentGradient: Record<string, string> = {
 
 function Lightbox({ images, startIndex, onClose }: { images: string[]; startIndex: number; onClose: () => void }) {
   const [idx, setIdx] = useState(startIndex)
+  const touchStartX = useRef<number | null>(null)
+
   const prev = () => setIdx(i => (i - 1 + images.length) % images.length)
   const next = () => setIdx(i => (i + 1) % images.length)
 
@@ -47,6 +49,16 @@ function Lightbox({ images, startIndex, onClose }: { images: string[]; startInde
     }
   }, [])
 
+  const onTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX
+  }
+  const onTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null) return
+    const diff = touchStartX.current - e.changedTouches[0].clientX
+    if (Math.abs(diff) > 40) diff > 0 ? next() : prev()
+    touchStartX.current = null
+  }
+
   return createPortal(
     <motion.div
       initial={{ opacity: 0 }}
@@ -62,7 +74,7 @@ function Lightbox({ images, startIndex, onClose }: { images: string[]; startInde
         <X className="w-5 h-5 text-white" />
       </button>
 
-      <div className="relative w-full max-w-6xl flex flex-col items-center" onClick={e => e.stopPropagation()}>
+      <div className="relative w-full max-w-6xl flex flex-col items-center" onClick={e => e.stopPropagation()} onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
         <motion.img
           key={idx}
           initial={{ opacity: 0, scale: 0.96 }}
